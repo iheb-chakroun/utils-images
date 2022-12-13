@@ -1,10 +1,10 @@
-name: publish-ci-node-utils
+name: CI-buildah-ssh
 
 on:
   push:
     branches: [main]
     paths:
-      - node-utils/Dockerfile
+      - buildah-ssh/Dockerfile
 
 jobs:
   build:
@@ -18,5 +18,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build the Docker images
         run: |
-          docker build node-utils --file node-utils/Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/node-utils:latest
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/node-utils:latest
+          docker build buildah-ssh --file buildah-ssh/Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/buildah-ssh:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/buildah-ssh:latest
