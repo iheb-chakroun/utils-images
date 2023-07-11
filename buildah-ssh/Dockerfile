@@ -1,8 +1,4 @@
-FROM quay.io/buildah/stable:v1.28.0
+FROM quay.io/buildah/stable:v1.30.0
 
-RUN dnf -y update && dnf -y install openssh-server passwd && dnf clean all
-
-RUN ssh-keygen -A
-
-CMD ["/usr/sbin/sshd", "-D"]
+RUN yum install -y sudo openssh-server openssh-clients 1> /dev/null
 
